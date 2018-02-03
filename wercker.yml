@@ -8,7 +8,7 @@ build:
     steps:
       - script:
           name: Clear bundle cache
-          code: rm -rf /pipeline/cache/bundle-install/ruby/2.4.2/cache/bundler/git/*
+          code: rm -rf /pipeline/cache/bundle-install/ruby/2.4.0/cache/bundler/git/*
 
       - bundle-install
       - rails-database-yml:
