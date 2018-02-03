@@ -47,3 +47,5 @@ gem 'unicorn'
 group :development, :test do
   gem 'rspec-rails'
 end
+
+gem 'therubyracer', platforms: :ruby
