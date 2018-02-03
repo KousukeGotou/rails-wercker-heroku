@@ -1,18 +1,11 @@
-box: ruby:2.4.2
-
+box: wercker/ubuntu12.04-ruby2.0.0
 services:
-  - id: postgres
-    env:
-      POSTGRES_PASSWORD: secret_password
+    - wercker/postgresql
 build:
     steps:
-      - script:
-          name: Clear bundle cache
-          code: rm -rf /pipeline/cache/bundle-install/ruby/2.4.0/cache/bundler/git/*
-
       - bundle-install
       - rails-database-yml:
-          service: postgresql-docker
+          service: postgresql
       - script:
           name: echo ruby information
           code: |
