@@ -1,14 +1,12 @@
-box: ruby2.0.0
+box: ruby2.4.2
 
 services:
-  - id: postgres
-    env:
-      POSTGRES_PASSWORD: secret_password
+    - wercker/postgresql
 build:
     steps:
       - bundle-install
       - rails-database-yml:
-          service: postgresql-docker
+          service: postgresql
       - script:
           name: echo ruby information
           code: |
