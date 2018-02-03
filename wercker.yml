@@ -6,6 +6,10 @@ services:
       POSTGRES_PASSWORD: secret_password
 build:
     steps:
+      - script:
+          name: Clear bundle cache
+          code: rm -rf /pipeline/cache/bundle-install/ruby/2.4.2/cache/bundler/git/*
+
       - bundle-install
       - rails-database-yml:
           service: postgresql-docker
